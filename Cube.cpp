@@ -2,17 +2,17 @@
 #version 420 core
 
 layout(location = 1) attribute vec3 position;
-layout(location = 2) attribute vec4 color;
+layout(location = 2) attribute vec3 color;
 
-uniform mat4 model[3];
 uniform mat4 view;
 uniform mat4 projection;
+uniform mat4 model[3];
 
 out vec4 outColor;
 
 void main(){
     gl_Position = projection * view * model[2] * model[1] * model[0] * vec4(position, 1);
-    outColor = color;
+    outColor = vec4(color , 1);
 }
 
 
